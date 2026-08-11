@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>מחשבון הגיל שלי</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f0f2f5; padding: 50px; }
+        .card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: inline-block; }
+        input, button { padding: 10px; font-size: 16px; margin: 10px; border-radius: 5px; border: 1px solid #ccc; }
+        button { background-color: #007bff; color: white; cursor: pointer; border: none; }
+        button:hover { background-color: #0056b3; }
+        #result { font-size: 18px; font-weight: bold; margin-top: 20px; color: #333; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>🎉 מחשבון הגיל שלי 🎉</h2>
+        <p>הכנס את שנת הלידה שלך:</p>
+        <input type="number" id="yearInput" placeholder="למשל: 1995" min="1900" max="2026">
+        <br>
+        <button onclick="calculateAge()">חשב גיל!</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculateAge() {
+            var year = document.getElementById('yearInput').value;
+            if (!year) { document.getElementById('result').innerHTML = "נא להכניס שנה!"; return; }
+            var currentYear = 2026;
+            var age = currentYear - parseInt(year);
+            var message = "הגיל שלך הוא: " + age + "<br><br>";
+            if (age >= 18) { message += "איזה יופי, אתה כבר מבוגר ויכול להוציא רישיון נהיגה! 🚗"; }
+            else { message += "אתה עדיין קטין, תהנה מהילדות כל עוד אתה יכול! 🧒"; }
+            document.getElementById('result').innerHTML = message;
+        }
+    </script>
+</body>
+</html>
