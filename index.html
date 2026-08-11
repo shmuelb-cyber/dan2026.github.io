@@ -20,23 +20,6 @@
             overflow-x: hidden;
         }
 
-        .audio-control {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 10px 15px;
-            border-radius: 50px;
-            cursor: pointer;
-            color: white;
-            font-size: 14px;
-            backdrop-filter: blur(5px);
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-        .audio-control:hover { background: rgba(255, 255, 255, 0.2); }
-
         .card {
             background: rgba(20, 21, 33, 0.6);
             backdrop-filter: blur(20px);
@@ -159,53 +142,19 @@
 </head>
 <body>
 
-    <button class="audio-control" onclick="toggleMusic()" id="musicBtn">🎵 הפעל סאונד רקע</button>
-
     <div class="card">
         <h2>CYBER AGE 2026</h2>
         <div class="subtitle">הזן תאריך לידה לניתוח קוונטי מלא:</div>
         
         <input type="date" id="birthdate" max="2026-12-31">
         <br>
-        <button class="main-btn" onclick="processData()" onmouseenter="playHoverSound()">נתח תאריך לידה</button>
+        <button class="main-btn" onclick="processData()">נתח תאריך לידה</button>
         
         <div id="result"></div>
     </div>
 
-    <audio id="bgMusic" loop src="https://soundhelix.com"></audio>
-    <audio id="hoverSound" src="https://google.com"></audio>
-    <audio id="successSound" src="https://google.com"></audio>
-
     <script>
-        const bgMusic = document.getElementById('bgMusic');
-        bgMusic.volume = 0.15;
-
-        function toggleMusic() {
-            if (bgMusic.paused) {
-                bgMusic.play().catch(e => console.log("אנא אשר סאונד"));
-                document.getElementById('musicBtn').innerText = "⏸️ השתק סאונד רקע";
-            } else {
-                bgMusic.pause();
-                document.getElementById('musicBtn').innerText = "🎵 הפעל סאונד רקע";
-            }
-        }
-
-        function playHoverSound() {
-            const snd = document.getElementById('hoverSound');
-            snd.volume = 0.2;
-            snd.currentTime = 0;
-            snd.play().catch(() => {});
-        }
-
-        function playSuccessSound() {
-            const snd = document.getElementById('successSound');
-            snd.volume = 0.4;
-            snd.currentTime = 0;
-            snd.play().catch(() => {});
-        }
-
         function getZodiac(day, month) {
-            // רשימת מזלות מתוקנת ומלאה
             if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) return "טלה ♈";
             if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) return "שור ♉";
             if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) return "תאומים ♊";
@@ -242,3 +191,22 @@
                 1977: "הסרט הראשון של 'מלחמת הכוכבים' יוצא לאקרנים ויוצר טירוף עולמי בקולנוע.",
                 1978: "נולדת תינוקת המבחנה הראשונה בהיסטוריה, ונחתמו הסכמי השלום בקמפ דיוויד.",
                 1979: "חברת סוני משיקה את ה'ווקמן' (Walkman) ומשנה את הדרך בה אנו שומעים מוזיקה ברחוב.",
+                1980: "משחק הוידאו הפופולרי פק-מן מושק ומשגע את אולמות הארקייד בעולם 🕹️.",
+                1981: "חברת IBM משיקה את המחשב האישי המודרני הראשון (PC), וערוץ MTV עולה לשידור.",
+                1982: "חברת סוני מציגה לעולם את תקליטור ה-CD הראשון, ומחשב הקומודור 64 יוצא לשוק.",
+                1983: "רשת האינטרנט עוברת להשתמש בפרוטוקול TCP/IP - יום ההולדת הרשמי של האינטרנט 🌐.",
+                1984: "חברת אפל משיקה את מחשב המקינטוש הראשון, ומשחק הטטריס מומצא ברוסיה.",
+                1985: "חברת מיקרוסופט משחררת את הגרסה הראשונה של מערכת ההפעלה Windows 1.0.",
+                1986: "מתרחש אסון צ'רנוביל הדרמטי, ותחנת החלל הרוסית 'מיר' משוגרת למסלול סביב כדור הארץ.",
+                1987: "מבוצעת לראשונה הפרדה מוצלח של תאומים סיאמיים המחוברים בראשם על ידי ד\"ר בן קרסון.",
+                1988: "הומצא פורמט המוזיקה הדיגיטלי MP3, והשימוש בדואר אלקטרוני הולך ומתרחב.",
+                1989: "נפילת חומת ברלין, והמדען טים ברנרס-לי ממציא את רשת האינטרנט הציבורית (WWW).",
+                1990: "טלסקופ החלל האבל משוגר למסלול, ונלסון מנדלה משוחרר מהכלא בדרכו להנהיג את דרום אפריקה.",
+                1991: "ברית המועצות מתפרקת רשמית, ועולה לאוויר אתר האינטרנט הציבורי הראשון בהיסטוריה.",
+                1992: "הודעת ה-SMS הראשונה בהיסטוריה נשלחת בטלפון נייד, ומשחקי המחשב עוברים לעידן התלת-מימד.",
+                1993: "מעבד הפנטיום הראשון של אינטל מושק, והסרט פארק היורה יוצא לקולנוע ומדהים באפקטים דיגיטליים 🦖.",
+                1994: "רשת האינטרנט הופכת למסחרית: חברת אמזון מוקמת על ידי ג'ף בזוס.",
+                1995: "מיקרוסופט משחררת את מערכת ההפעלה Windows 95, וחברת פיקסאר מוציאה את צעצוע של סיפור 🧸.",
+                1996: "המדענים מצליחים לשבט לראשונה יונק - הכבשה דולי נולדת, ומשחק הנינטנדו 64 כובש את העולם.",
+                1997: "העולם מתאבל על מותה של הנסיכה דיאנה, ומחשב העל 'כחול עמוק' מנצח את אלוף העולם בשחמט.",
+                1998: "לארי פייג' וסרגיי ברין מקימים רשמית בתוך מוסך את חברת Google 🔍.",
