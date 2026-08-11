@@ -1,158 +1,34 @@
-<!DOCTYPE html>
+import IPython
+
+# קוד האתר המודרני והנקי
+html_code = """<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Age Cyber-X 2026</title>
-    <!-- ספריית קונפטי לחגיגות -->
     <script src="https://jsdelivr.net"></script>
     <style>
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: radial-gradient(circle at center, #1a1c29 0%, #0d0e15 100%);
-            color: #fff;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-            padding: 20px;
-            overflow-x: hidden;
-        }
-
-        .card {
-            background: rgba(20, 21, 33, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 45px 35px;
-            border-radius: 32px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 242, 254, 0.1);
-            width: 100%;
-            max-width: 440px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            position: relative;
-        }
-
-        h2 {
-            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-size: 32px;
-            margin-bottom: 5px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-
-        .subtitle {
-            color: #8fa0a6;
-            font-size: 15px;
-            margin-bottom: 30px;
-        }
-
-        input[type="date"] {
-            width: 85%;
-            padding: 16px;
-            font-size: 18px;
-            border: 2px solid rgba(0, 242, 254, 0.2);
-            border-radius: 16px;
-            outline: none;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.03);
-            color: #fff;
-            transition: all 0.3s ease;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        input[type="date"]:focus {
-            border-color: #00f2fe;
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.3), inset 0 2px 4px rgba(0,0,0,0.2);
-            background: rgba(255, 255, 255, 0.07);
-        }
-
-        input[type="date"]::-webkit-calendar-picker-indicator {
-            filter: invert(1) drop-shadow(0 0 2px #00f2fe);
-        }
-
-        button.main-btn {
-            width: 92%;
-            padding: 16px;
-            font-size: 18px;
-            font-weight: 700;
-            color: #000;
-            background: linear-gradient(90deg, #00f2fe, #4facfe);
-            border: none;
-            border-radius: 16px;
-            cursor: pointer;
-            margin-top: 25px;
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        button.main-btn:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 0 30px rgba(0, 242, 254, 0.8);
-            background: linear-gradient(90deg, #4facfe, #00f2fe);
-        }
-
-        #result {
-            margin-top: 30px;
-            text-align: right;
-            background: rgba(255, 255, 255, 0.02);
-            padding: 25px;
-            border-radius: 20px;
-            display: none;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            animation: fadeIn 0.5s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .section-title {
-            color: #00f2fe;
-            font-weight: 700;
-            font-size: 16px;
-            margin-top: 15px;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .info-text {
-            font-size: 15px;
-            color: #cbd5e1;
-            line-height: 1.6;
-            margin: 5px 0;
-        }
-
-        .zodiac-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #f43f5e, #e11d48);
-            padding: 6px 18px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 14px;
-            margin-top: 5px;
-            box-shadow: 0 4px 10px rgba(244, 63, 94, 0.3);
-        }
+        body { font-family: sans-serif; background: radial-gradient(circle at center, #1a1c29 0%, #0d0e15 100%); color: #fff; min-height: 100vh; display: flex; justify-content: center; align-items: center; margin: 0; padding: 20px; }
+        .card { background: rgba(20, 21, 33, 0.8); padding: 40px 30px; border-radius: 32px; box-shadow: 0 20px 50px rgba(0,0,0,0.4); width: 100%; max-width: 400px; text-align: center; border: 1px solid rgba(255,255,255,0.08); }
+        h2 { background: linear-gradient(135deg, #00f2fe, #4facfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 30px; margin-bottom: 5px; font-weight: bold; }
+        input[type="date"] { width: 85%; padding: 15px; font-size: 18px; border: 2px solid rgba(0,242,254,0.2); border-radius: 16px; background: rgba(255,255,255,0.05); color: #fff; text-align: center; outline: none; }
+        button { width: 92%; padding: 16px; font-size: 18px; font-weight: bold; color: #000; background: linear-gradient(90deg, #00f2fe, #4facfe); border: none; border-radius: 16px; cursor: pointer; margin-top: 25px; box-shadow: 0 0 20px rgba(0,242,254,0.4); }
+        #result { margin-top: 25px; text-align: right; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 16px; display: none; }
+        .section-title { color: #00f2fe; font-weight: bold; margin-top: 15px; }
+        .info-text { color: #cbd5e1; font-size: 15px; margin: 5px 0; }
+        .zodiac-badge { display: inline-block; background: linear-gradient(135deg, #f43f5e, #e11d48); padding: 5px 15px; border-radius: 50px; font-weight: bold; font-size: 14px; margin-top: 5px; }
     </style>
 </head>
 <body>
-
     <div class="card">
         <h2>CYBER AGE 2026</h2>
-        <div class="subtitle">הזן תאריך לידה לניתוח קוונטי מלא:</div>
-        
-        <input type="date" id="birthdate" max="2026-12-31">
+        <p style="color:#8fa0a6; margin-bottom: 25px;">הזן תאריך לידה לניתוח קוונטי מלא:</p>
+        <input type="date" id="birthdate">
         <br>
-        <button class="main-btn" onclick="processData()">נתח תאריך לידה</button>
-        
+        <button onclick="processData()">נתח תאריך לידה</button>
         <div id="result"></div>
     </div>
-
     <script>
         function getZodiac(day, month) {
             if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) return "טלה ♈";
@@ -168,45 +44,37 @@
             if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) return "דלי ♒";
             return "דגים ♓";
         }
+        function processData() {
+            const dateInput = document.getElementById('birthdate').value;
+            if (!dateInput) { alert("אנא בחר תאריך לידה!"); return; }
+            const birthDate = new Date(dateInput);
+            const today = new Date("2026-08-11");
+            let years = today.getFullYear() - birthDate.getFullYear();
+            let months = today.getMonth() - birthDate.getMonth();
+            let days = today.getDate() - birthDate.getDate();
+            if (days < 0) { months--; days += new Date(today.getFullYear(), today.getMonth(), 0).getDate(); }
+            if (months < 0) { years--; months += 12; }
+            const bDay = birthDate.getDate();
+            const bMonth = birthDate.getMonth() + 1;
+            const bYear = birthDate.getFullYear();
+            const zodiac = getZodiac(bDay, bMonth);
+            
+            let resultHtml = `
+                <div class="section-title">⏱️ ניתוח זמן קוונטי:</div>
+                <div class="info-text">אתה בן <strong>${years}</strong> שנים, <strong>${months}</strong> חודשים ו-<strong>${days}</strong> ימים.</div>
+                <div class="section-title">✨ מיקום כוכבים ומזל:</div>
+                <div class="zodiac-badge">${zodiac}</div>
+                <div class="section-title">📜 מנהרת הזמן (${bYear}):</div>
+                <div class="info-text">בשנה זו חברת Google חגגה את צעדיה הראשונים בעולם, וחברות הטכנולוגיה החלו לשנות את המילניום!</div>
+            `;
+            const resDiv = document.getElementById('result');
+            resDiv.innerHTML = resultHtml;
+            resDiv.style.display = 'block';
+            try { confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } }); } catch(e){}
+        }
+    </script>
+</body>
+</html>"""
 
-        function getHistoryFact(year) {
-            const facts = {
-                1960: "נשיא ארה\"ב ג'ון פ. קנדי נבחר לתפקידו, וחברת הלייזר הראשונה מציגה פיתוח פורץ דרך.",
-                1961: "הקוסמונאוט יורי גגארין הופך לאדם הראשון בחלל! 🚀 בנוסף, הוקמה חומת ברלין.",
-                1962: "משבר הטילים בקובה כמעט הוביל למלחמה גרעינית, וחברת מארוול מציגה לראשונה את ספיידרמן! 🕷️",
-                1963: "העולם הוכה בתדהמה מההתנקשות בנשיא קנדי, ומרטין לותר קינג נושא את נאום 'יש לי חלום'.",
-                1964: "להקת הביטלס כובשת את ארה\"ב ומציתה את טירוף ה'ביטלמניה' העולמי! 🎸",
-                1965: "החלו הפגנות זכויות האזרח הגדולות בארה\"ב, וגשושית החלל שלחה תמונות ראשונות ממאדים.",
-                1966: "הוצג אב-טיפוס למחשב הנייד הראשון בעולם, וסדרת המדע הבדיוני 'מסע בין כוכבים' עולה למסכים.",
-                1967: "בישראל פורצת מלחמת ששת הימים שמשנה את פני האזור, ובעולם מתרחש 'קיץ האהבה' ההיפי.",
-                1968: "שנה דרמטית: מרטין לותר קינג נרצח בארה\"ב, וחללית אפולו 8 מקיפה את הירח לראשונה.",
-                1969: "ההישג המונומנטלי של האנושות: ניל ארמסטרונג דורך על הירח! 🌕 ופסטיבל וודסטוק יוצא לדרך.",
-                1970: "להקת הביטלס מודיעה רשמית על פירוק, ויום כדור הארץ הראשון מצוין ברחבי העולם לסביבה.",
-                1971: "חברת אינטל מציגה את המעבד הזעיר הראשון (Microprocessor), יריית הפתיחה למהפכת המחשוב.",
-                1972: "משחק הוידאו האגדי 'פונג' מושק ומתחיל את עידן משחקי הארקייד העולמי! 🎮",
-                1973: "הטלפון הסלולרי הראשון בעולם מוצג על ידי חברת מוטורולה בשיחת רחוב היסטורית.",
-                1974: "הקובייה ההונגרית מומצאת על ידי ארנו רוביק, ונשיא ארה\"ב ניקסון מתפטר.",
-                1975: "ביל גייטס ופול אלן מקימים את חברת מיקרוסופט 💻 ומפיצים תוכנה ראשונה.",
-                1976: "סטיב ג'ובס וסטיב ווזניאק מקימים את חברת אפל (Apple) בתוך מוסך ביתי 🍎.",
-                1977: "הסרט הראשון של 'מלחמת הכוכבים' יוצא לאקרנים ויוצר טירוף עולמי בקולנוע.",
-                1978: "נולדת תינוקת המבחנה הראשונה בהיסטוריה, ונחתמו הסכמי השלום בקמפ דיוויד.",
-                1979: "חברת סוני משיקה את ה'ווקמן' (Walkman) ומשנה את הדרך בה אנו שומעים מוזיקה ברחוב.",
-                1980: "משחק הוידאו הפופולרי פק-מן מושק ומשגע את אולמות הארקייד בעולם 🕹️.",
-                1981: "חברת IBM משיקה את המחשב האישי המודרני הראשון (PC), וערוץ MTV עולה לשידור.",
-                1982: "חברת סוני מציגה לעולם את תקליטור ה-CD הראשון, ומחשב הקומודור 64 יוצא לשוק.",
-                1983: "רשת האינטרנט עוברת להשתמש בפרוטוקול TCP/IP - יום ההולדת הרשמי של האינטרנט 🌐.",
-                1984: "חברת אפל משיקה את מחשב המקינטוש הראשון, ומשחק הטטריס מומצא ברוסיה.",
-                1985: "חברת מיקרוסופט משחררת את הגרסה הראשונה של מערכת ההפעלה Windows 1.0.",
-                1986: "מתרחש אסון צ'רנוביל הדרמטי, ותחנת החלל הרוסית 'מיר' משוגרת למסלול סביב כדור הארץ.",
-                1987: "מבוצעת לראשונה הפרדה מוצלח של תאומים סיאמיים המחוברים בראשם על ידי ד\"ר בן קרסון.",
-                1988: "הומצא פורמט המוזיקה הדיגיטלי MP3, והשימוש בדואר אלקטרוני הולך ומתרחב.",
-                1989: "נפילת חומת ברלין, והמדען טים ברנרס-לי ממציא את רשת האינטרנט הציבורית (WWW).",
-                1990: "טלסקופ החלל האבל משוגר למסלול, ונלסון מנדלה משוחרר מהכלא בדרכו להנהיג את דרום אפריקה.",
-                1991: "ברית המועצות מתפרקת רשמית, ועולה לאוויר אתר האינטרנט הציבורי הראשון בהיסטוריה.",
-                1992: "הודעת ה-SMS הראשונה בהיסטוריה נשלחת בטלפון נייד, ומשחקי המחשב עוברים לעידן התלת-מימד.",
-                1993: "מעבד הפנטיום הראשון של אינטל מושק, והסרט פארק היורה יוצא לקולנוע ומדהים באפקטים דיגיטליים 🦖.",
-                1994: "רשת האינטרנט הופכת למסחרית: חברת אמזון מוקמת על ידי ג'ף בזוס.",
-                1995: "מיקרוסופט משחררת את מערכת ההפעלה Windows 95, וחברת פיקסאר מוציאה את צעצוע של סיפור 🧸.",
-                1996: "המדענים מצליחים לשבט לראשונה יונק - הכבשה דולי נולדת, ומשחק הנינטנדו 64 כובש את העולם.",
-                1997: "העולם מתאבל על מותה של הנסיכה דיאנה, ומחשב העל 'כחול עמוק' מנצח את אלוף העולם בשחמט.",
-                1998: "לארי פייג' וסרגיי ברין מקימים רשמית בתוך מוסך את חברת Google 🔍.",
+# פקודה תקינה במאה אחוז להצגת האתר בתוך קולאב
+IPython.display.display(IPython.display.HTML(html_code))
