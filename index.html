@@ -7,7 +7,6 @@
     <!-- ספריית קונפטי לחגיגות -->
     <script src="https://jsdelivr.net"></script>
     <style>
-        /* עיצוב רקע עתידני דינמי */
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background: radial-gradient(circle at center, #1a1c29 0%, #0d0e15 100%);
@@ -21,7 +20,6 @@
             overflow-x: hidden;
         }
 
-        /* כפתור שליטה במוזיקה בפינת המסך */
         .audio-control {
             position: fixed;
             top: 20px;
@@ -39,7 +37,6 @@
         }
         .audio-control:hover { background: rgba(255, 255, 255, 0.2); }
 
-        /* כרטיסיית זכוכית עתידנית (Glassmorphism) */
         .card {
             background: rgba(20, 21, 33, 0.6);
             backdrop-filter: blur(20px);
@@ -70,7 +67,6 @@
             margin-bottom: 30px;
         }
 
-        /* תיבת תאריך מטאלית סופר מודרנית */
         input[type="date"] {
             width: 85%;
             padding: 16px;
@@ -95,8 +91,7 @@
             filter: invert(1) drop-shadow(0 0 2px #00f2fe);
         }
 
-        /* כפתור ניאון זוהר */
-        button {
+        button.main-btn {
             width: 92%;
             padding: 16px;
             font-size: 18px;
@@ -111,13 +106,12 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        button:hover {
+        button.main-btn:hover {
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 0 30px rgba(0, 242, 254, 0.8);
             background: linear-gradient(90deg, #4facfe, #00f2fe);
         }
 
-        /* פאנל תוצאות הייטק */
         #result {
             margin-top: 30px;
             text-align: right;
@@ -165,7 +159,6 @@
 </head>
 <body>
 
-    <!-- כפתור מוזיקת רקע -->
     <button class="audio-control" onclick="toggleMusic()" id="musicBtn">🎵 הפעל סאונד רקע</button>
 
     <div class="card">
@@ -174,25 +167,22 @@
         
         <input type="date" id="birthdate" max="2026-12-31">
         <br>
-        <!-- הוספנו אפקט קול בריחוף ובלחיצה -->
-        <button onclick="processData()" onmouseenter="playHoverSound()">נתח תאריך לידה</button>
+        <button class="main-btn" onclick="processData()" onmouseenter="playHoverSound()">נתח תאריך לידה</button>
         
         <div id="result"></div>
     </div>
 
-    <!-- הגדרת אלמנטים של סאונד ישירות מרשת האינטרנט החינמית -->
     <audio id="bgMusic" loop src="https://soundhelix.com"></audio>
     <audio id="hoverSound" src="https://google.com"></audio>
     <audio id="successSound" src="https://google.com"></audio>
 
     <script>
-        // פונקציות סאונד
         const bgMusic = document.getElementById('bgMusic');
-        bgMusic.volume = 0.15; // ווליום נמוך ונעים לרקע
+        bgMusic.volume = 0.15;
 
         function toggleMusic() {
             if (bgMusic.paused) {
-                bgMusic.play().catch(e => console.log("אנא לחץ שוב כדי לאשר סאונד"));
+                bgMusic.play().catch(e => console.log("אנא אשר סאונד"));
                 document.getElementById('musicBtn').innerText = "⏸️ השתק סאונד רקע";
             } else {
                 bgMusic.pause();
@@ -215,6 +205,7 @@
         }
 
         function getZodiac(day, month) {
+            // רשימת מזלות מתוקנת ומלאה
             if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) return "טלה ♈";
             if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) return "שור ♉";
             if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) return "תאומים ♊";
@@ -243,6 +234,11 @@
                 1969: "ההישג המונומנטלי של האנושות: ניל ארמסטרונג דורך על הירח! 🌕 ופסטיבל וודסטוק יוצא לדרך.",
                 1970: "להקת הביטלס מודיעה רשמית על פירוק, ויום כדור הארץ הראשון מצוין ברחבי העולם לסביבה.",
                 1971: "חברת אינטל מציגה את המעבד הזעיר הראשון (Microprocessor), יריית הפתיחה למהפכת המחשוב.",
-                2000: "האנושות חוגגת את כניסתו של המילניום החדש! בנוסף, הושקה קונסולת פלייסטיישן 2 האגדית 🎮.",
-                2001: "אסון התאומים הדרמטי ב-11 בספטמבר משנה את פני ההיסטוריה, וחברת אפל משיקה את ה-iPod 🎧.",
-                2007: "סטיב ג'ובס עולה לבמה ומציג את ה-**iPhone** הראשון – המכשיר ששינה את האנושות כולה לנצח! 📱",
+                1972: "משחק הוידאו האגדי 'פונג' מושק ומתחיל את עידן משחקי הארקייד העולמי! 🎮",
+                1973: "הטלפון הסלולרי הראשון בעולם מוצג על ידי חברת מוטורולה בשיחת רחוב היסטורית.",
+                1974: "הקובייה ההונגרית מומצאת על ידי ארנו רוביק, ונשיא ארה\"ב ניקסון מתפטר.",
+                1975: "ביל גייטס ופול אלן מקימים את חברת מיקרוסופט 💻 ומפיצים תוכנה ראשונה.",
+                1976: "סטיב ג'ובס וסטיב ווזניאק מקימים את חברת אפל (Apple) בתוך מוסך ביתי 🍎.",
+                1977: "הסרט הראשון של 'מלחמת הכוכבים' יוצא לאקרנים ויוצר טירוף עולמי בקולנוע.",
+                1978: "נולדת תינוקת המבחנה הראשונה בהיסטוריה, ונחתמו הסכמי השלום בקמפ דיוויד.",
+                1979: "חברת סוני משיקה את ה'ווקמן' (Walkman) ומשנה את הדרך בה אנו שומעים מוזיקה ברחוב.",
