@@ -1,12 +1,10 @@
-import IPython
-
-# קוד האתר המודרני והנקי
-html_code = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Age Cyber-X 2026</title>
+    <!-- תיקנו את הכתובת של ספריית הקונפטי כאן למטה -->
     <script src="https://jsdelivr.net"></script>
     <style>
         body { font-family: sans-serif; background: radial-gradient(circle at center, #1a1c29 0%, #0d0e15 100%); color: #fff; min-height: 100vh; display: flex; justify-content: center; align-items: center; margin: 0; padding: 20px; }
@@ -48,7 +46,7 @@ html_code = """<!DOCTYPE html>
             const dateInput = document.getElementById('birthdate').value;
             if (!dateInput) { alert("אנא בחר תאריך לידה!"); return; }
             const birthDate = new Date(dateInput);
-            const today = new Date("2026-08-11");
+            const today = new Date();
             let years = today.getFullYear() - birthDate.getFullYear();
             let months = today.getMonth() - birthDate.getMonth();
             let days = today.getDate() - birthDate.getDate();
@@ -74,7 +72,4 @@ html_code = """<!DOCTYPE html>
         }
     </script>
 </body>
-</html>"""
-
-# פקודה תקינה במאה אחוז להצגת האתר בתוך קולאב
-IPython.display.display(IPython.display.HTML(html_code))
+</html>
